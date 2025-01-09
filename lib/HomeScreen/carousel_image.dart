@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import, prefer_const_constructors
+// ignore_for_file: unused_import, prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -25,7 +25,7 @@ class _MyWidgetState extends State<CAROUSELIMAGE> {
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: 300.0,
+            height: 280.0,
             autoPlay: true,
             enlargeCenterPage: true,
             aspectRatio: 16 / 9,
@@ -43,10 +43,10 @@ class _MyWidgetState extends State<CAROUSELIMAGE> {
             return Builder(
               builder: (BuildContext context) {
                 return Padding(
-                  padding: EdgeInsets.only(top: 40),
+                  padding: EdgeInsets.only(top: 0),
                   child: Container(
-                    // width: 400,
-                    // height: 400,
+                    width: 420,
+                    // height: 380,
                     // margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
                     decoration: BoxDecoration(
                       color: Colors.amber,
@@ -56,8 +56,30 @@ class _MyWidgetState extends State<CAROUSELIMAGE> {
                         fit: BoxFit.cover,
                       ),
                     ),
-                    child: Center(
-                      child: Text('Irence Red VedVet'),
+                    child: Padding(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Irence RedVelVet',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontStyle: FontStyle.italic),
+                          ),
+                          Text(
+                            'South Korea',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 25,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 );

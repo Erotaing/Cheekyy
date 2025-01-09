@@ -40,7 +40,7 @@ class _DetailCarouselImageState extends State<DetailCarouselImage> {
           items: imageUrls.map((imageUrl) {
             return Builder(
               builder: (BuildContext context) {
-                return Container(
+                return SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.height,
                   child: Image.asset(
@@ -74,7 +74,7 @@ class _DetailCarouselImageState extends State<DetailCarouselImage> {
           ),
         ),
         Positioned(
-          top: 30,
+          top: 40,
           left: 10,
           right: 10,
           child: Row(
@@ -90,23 +90,47 @@ class _DetailCarouselImageState extends State<DetailCarouselImage> {
                   color: Colors.white,
                 ),
               ),
-              Container(
-                  height: 50,
-                  width: 50,
-                  decoration: BoxDecoration(
-                    color: Colors.grey[400],
-                    borderRadius: BorderRadius.circular(40),
-                  ),
-                  child: Center(
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: Icon(
-                        Icons.favorite_border,
-                        size: 30,
-                        color: Colors.white,
+              Row(
+                children: [
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.blue[400],
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Center(
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.share,
+                          size: 30,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
-                  ))
+                  ),
+                  SizedBox(width: 5),
+                  Container(
+                    height: 50,
+                    width: 50,
+                    decoration: BoxDecoration(
+                      color: Colors.blue[400],
+                      borderRadius: BorderRadius.circular(40),
+                    ),
+                    child: Center(
+                      child: IconButton(
+                        onPressed: () {},
+                        icon: Icon(
+                          Icons.favorite_border,
+                          size: 30,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              )
             ],
           ),
         ),

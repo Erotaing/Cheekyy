@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
 import 'package:flutter/material.dart';
-import 'package:network_state_management/Screen/home.dart';
+import 'package:network_state_management/HomeScreen/home_screen.dart';
 // import '../Screen/home.dart';
-import '../Screen/navbar_screen.dart';
+import '../HomeScreen/navbar_screen.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -28,42 +28,17 @@ class _ProfileState extends State<Profile> {
               children: [
                 //App bar of profile
                 Padding(
-                  padding: EdgeInsets.only(top: 30),
+                  padding: EdgeInsets.only(top: 40, bottom: 20),
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      IconButton(
-                        onPressed: () {
-                          // Navigator.push(
-                          //   context,
-                          // );
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => ButtomNavBar()),
-                          );
-                        },
-                        icon: Icon(
-                          Icons.arrow_back,
-                          color: Colors.white,
-                          size: 25,
-                        ),
-                      ),
                       Text(
                         'Profile',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 20,
+                          fontSize: 25,
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      IconButton(
-                        onPressed: () {},
-                        icon: Icon(
-                          Icons.notifications,
-                          color: Colors.white,
-                          size: 25,
                         ),
                       ),
                     ],

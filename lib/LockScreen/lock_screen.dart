@@ -9,61 +9,56 @@ class LockScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.blue,
-      body: Container(
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('images/Intro_page.jpg'),
-            fit: BoxFit.cover,
+        // backgroundColor: Colors.blue,
+        body: SingleChildScrollView(
+      child: Column(
+        children: [
+          Container(
+            height: MediaQuery.of(context).size.height,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('images/Intro_page.jpg'),
+                fit: BoxFit.cover,
+              ),
+            ),
+            child: Center(
+                child: Column(
+              children: [
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 450),
+                    child: Text(
+                      'A NEW WAY \n TO TRAVEL',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                        fontStyle: FontStyle.italic,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
+                Center(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: Text(
+                      'we maximize your vacations \n experiments the right way ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ),
+                ),
+                //
+                EXPLOREBTN(),
+                //
+              ],
+            )),
           ),
-        ),
-        child: Center(
-            child: Column(
-          children: [
-            Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 450),
-                child: Text(
-                  'A NEW WAY \n TO TRAVEL',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 40,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-            Center(
-              child: Padding(
-                padding: EdgeInsets.only(top: 10),
-                child: Text(
-                  'we maximize your vacations \n experiments the right way ',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                  ),
-                ),
-              ),
-            ),
-            //
-            EXPLOREBTN(),
-            //
-            Padding(
-              padding: EdgeInsets.only(top: 20),
-              child: Text(
-                'Create New An Account',
-                style: TextStyle(
-                  fontSize: 20,
-                  color: Colors.white,
-                  fontStyle: FontStyle.italic,
-                ),
-              ),
-            )
-          ],
-        )),
+        ],
       ),
-    );
+    ));
   }
 }
 
@@ -79,7 +74,7 @@ class _EXPLOREBTNState extends State<EXPLOREBTN> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: EdgeInsets.only(top: 10),
+        padding: EdgeInsets.only(top: 50),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             foregroundColor: Colors.white,

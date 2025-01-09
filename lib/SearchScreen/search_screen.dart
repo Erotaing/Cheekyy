@@ -2,17 +2,17 @@
 
 import 'package:flutter/material.dart';
 
-import '../Screen/navbar_screen.dart';
-import '../Screen/hearticon.dart';
+import '../HomeScreen/navbar_screen.dart';
+import '../HomeScreen/hearticon.dart';
 
-class SearchDestination extends StatefulWidget {
-  const SearchDestination({super.key});
+class SearchScreen extends StatefulWidget {
+  const SearchScreen({super.key});
 
   @override
-  State<SearchDestination> createState() => _SearchDestinationState();
+  State<SearchScreen> createState() => _SearchScreenState();
 }
 
-class _SearchDestinationState extends State<SearchDestination> {
+class _SearchScreenState extends State<SearchScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,12 +28,14 @@ class _SearchDestinationState extends State<SearchDestination> {
               children: [
                 //appbar
                 Padding(
-                  padding: EdgeInsets.only(top: 20, left: 5, right: 10),
+                  padding: EdgeInsets.only(top: 40, left: 5, right: 10),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
                         icon: Icon(
                           Icons.arrow_back,
                           color: Colors.white,
@@ -62,15 +64,16 @@ class _SearchDestinationState extends State<SearchDestination> {
                   padding: EdgeInsets.all(16),
                   child: TextField(
                     decoration: InputDecoration(
-                      hintText: 'Search',
-                      hintStyle: TextStyle(color: Colors.black),
+                      hintText: 'Search...',
+                      hintStyle: TextStyle(
+                          color: Colors.blue, fontStyle: FontStyle.italic),
                       prefixIcon: Icon(
                         Icons.search,
                         color: Colors.black,
                       ),
                       suffixIcon: Icon(
                         Icons.filter_list,
-                        color: Colors.black,
+                        color: Colors.blue,
                       ),
                       fillColor: Colors.white,
                       filled: true,

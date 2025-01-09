@@ -2,9 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-import '../Screen/navbar_screen.dart';
-import './detail_carousel_image.dart';
-import './decover_place.dart';
+import '../HomeScreen/navbar_screen.dart';
+import 'detail_carousel_image.dart';
+import 'detail_decover_place.dart';
+import '../MapScreen/map_screen.dart';
 
 class DETAILPLACE extends StatelessWidget {
   const DETAILPLACE({super.key});
@@ -16,7 +17,7 @@ class DETAILPLACE extends StatelessWidget {
         child: Column(
           children: [
             // Carousel Section
-            Container(
+            SizedBox(
               height: 350,
               width: double.infinity,
               child: DetailCarouselImage(),
@@ -168,40 +169,10 @@ class DETAILPLACE extends StatelessWidget {
                     ),
                     SizedBox(height: 20),
                     // Buttons
-                    Center(
-                      child: ElevatedButton(
-                        onPressed: () {},
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue[400],
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(20),
-                          ),
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 40, vertical: 15),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Icon(
-                              Icons.location_on,
-                              color: Colors.red,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'Location',
-                              style: TextStyle(
-                                fontSize: 18,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.white,
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
+
                     SizedBox(height: 20),
                     // Discover Place Section
-                    DECOVERPLACE(),
+                    DetailDecoverPlace(),
                   ],
                 ),
               ),
@@ -209,7 +180,33 @@ class DETAILPLACE extends StatelessWidget {
           ],
         ),
       ),
-      // bottomNavigationBar: BUTTOMBAR(),
+      bottomNavigationBar: Container(
+        margin: EdgeInsets.only(
+          bottom: 20,
+          left: 20,
+          right: 20,
+        ),
+        height: 65,
+        decoration: BoxDecoration(
+            color: Colors.blue[400], borderRadius: BorderRadius.circular(20)),
+        child: TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MapScreen()),
+              );
+            },
+            child: Center(
+              child: Text(
+                'Show On Map',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 25,
+                  fontStyle: FontStyle.italic,
+                ),
+              ),
+            )),
+      ),
     );
   }
 }
