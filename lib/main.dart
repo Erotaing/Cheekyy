@@ -6,16 +6,16 @@ import './natwork_state.dart';
 // import './HomeScreen/home_screen.dart';
 // import './Auth/signin/login.dart';
 // import './Auth/sign up/sign_up.dart';
-import './Screen/home.dart';
-import './DetailPlace/detail_place.dart';
-import 'Favourite/favourite_place.dart';
+import 'HomeScreen/home_screen.dart';
+import 'DetailPlaceScreen/detail_place.dart';
+import 'FavouriteScreen/favourite_place.dart';
 import './badge.dart';
-import './topdestination/top_place.dart';
-import './popularplace/pop_place.dart';
-import './searchdes/search_des.dart';
-import './proflie/account.dart';
-import 'Screen/navbar_screen.dart';
-import './chat/ChatScreen.dart';
+import 'TopDestinationScreen/top_destination.dart';
+import 'PopularPlaceScreen/pop_place.dart';
+import 'SearchScreen/search_screen.dart';
+import 'ProfileScreen/account.dart';
+import 'HomeScreen/navbar_screen.dart';
+import 'ChatScreen/ChatScreen.dart';
 import 'LockScreen/lock_screen.dart';
 
 void main() {

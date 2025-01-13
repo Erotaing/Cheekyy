@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 
-import '../Screen/navbar_screen.dart';
+import '../HomeScreen/navbar_screen.dart';
 
 class FavoritePlace extends StatefulWidget {
   const FavoritePlace({super.key});
@@ -27,64 +27,17 @@ class _FavoritePlaceState extends State<FavoritePlace> {
             child: Padding(
               padding: EdgeInsets.only(top: 20, left: 10, right: 15),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.arrow_back,
-                      size: 30,
-                      color: Colors.white,
-                    ),
-                  ),
                   Text(
                     'Favourite Place',
                     style: TextStyle(
-                      fontSize: 20,
+                      fontSize: 25,
                       color: Colors.white,
+                      fontStyle: FontStyle.italic,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Stack(
-                    clipBehavior: Clip.none, // To prevent clipping of the badge
-                    children: [
-                      IconButton(
-                        icon: Icon(
-                          Icons.notifications,
-                          size: 30,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          // Your action here
-                        },
-                      ),
-                      Positioned(
-                        right: 0, // Position the badge to the right of the icon
-                        top: 0,
-                        left: 25, // Position the badge at the top of the icon
-                        child: Container(
-                          padding: EdgeInsets.all(
-                              2), // Adjust the padding for the badge
-                          decoration: BoxDecoration(
-                            color: Colors.red, // Badge color
-                            shape: BoxShape.circle, // Make it circular
-                          ),
-                          constraints: BoxConstraints(
-                            minWidth: 15, // Minimum width of the badge
-                            minHeight: 15, // Minimum height of the badge
-                          ),
-                          child: Center(
-                            child: Text(
-                              '0', // Badge number or content
-                              style: TextStyle(
-                                color: Colors.white, // Badge text color
-                                fontSize: 12, // Font size
-                              ),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  )
                 ],
               ),
             ),

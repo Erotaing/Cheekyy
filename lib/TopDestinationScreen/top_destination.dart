@@ -1,16 +1,18 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 
-import '../Screen/hearticon.dart';
-import '../Screen/navbar_screen.dart';
+import '../HomeScreen/hearticon.dart';
+// import '../Screen/navbar_screen.dart';
 
-class PopularPlace extends StatefulWidget {
-  const PopularPlace({super.key});
+class TopDestinationScreen extends StatefulWidget {
+  const TopDestinationScreen({super.key});
 
   @override
-  State<PopularPlace> createState() => _PopularPlaceState();
+  State<TopDestinationScreen> createState() => _TopDestinationScreenState();
 }
 
-class _PopularPlaceState extends State<PopularPlace> {
+class _TopDestinationScreenState extends State<TopDestinationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,12 +31,16 @@ class _PopularPlaceState extends State<PopularPlace> {
                     children: [
                       //topbar
                       Padding(
-                        padding: EdgeInsets.only(top: 30),
+                        padding: EdgeInsets.only(top: 40, right: 5),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             IconButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                Navigator.pop(
+                                  context,
+                                );
+                              },
                               icon: Icon(
                                 Icons.arrow_back,
                                 size: 30,
@@ -42,28 +48,58 @@ class _PopularPlaceState extends State<PopularPlace> {
                               ),
                             ),
                             Text(
-                              'Popular Destination',
+                              'Top Destination',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: 25,
                                 color: Colors.white,
+                                fontStyle: FontStyle.italic,
+                                fontWeight: FontWeight.bold,
                               ),
                             ),
                             Stack(
-                              clipBehavior:
-                                  Clip.none, // To prevent clipping of the badge
+                              clipBehavior: Clip.none,
                               children: [
                                 IconButton(
-                                  icon: Icon(
-                                    Icons.notifications,
-                                    size: 30,
+                                  icon: const Icon(
+                                    Icons.notifications_outlined,
+                                    size: 35,
                                     color: Colors.white,
                                   ),
                                   onPressed: () {
-                                    // Your action here
+                                    // Navigator.push(
+                                    //   context,
+                                    //   MaterialPageRoute(
+                                    //       builder: (context) => NotificationService()),
+                                    // );
                                   },
+                                ),
+                                Positioned(
+                                  right: 14,
+                                  top: 8,
+                                  child: Container(
+                                    padding: const EdgeInsets.all(2),
+                                    decoration: const BoxDecoration(
+                                      color: Colors.red,
+                                      shape: BoxShape.circle,
+                                    ),
+                                    constraints: const BoxConstraints(
+                                      minWidth: 10,
+                                      minHeight: 10,
+                                    ),
+                                    // child: const Center(
+                                    //   child: Text(
+                                    //     '0',
+                                    //     style: TextStyle(
+                                    //       color: Colors.white,
+                                    //       fontSize: 12,
+                                    //     ),
+                                    //   ),
+                                    // ),
+                                  ),
                                 ),
                               ],
                             ),
+                          
                           ],
                         ),
                       ),
@@ -74,6 +110,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                           decoration: InputDecoration(
                             hintText: 'Search...',
                             prefixIcon: Icon(Icons.search),
+                            suffixIcon: Icon(Icons.filter_list),
                             hintStyle: TextStyle(color: Colors.blue),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(15.0),
@@ -101,14 +138,15 @@ class _PopularPlaceState extends State<PopularPlace> {
                         child: Column(
                           children: [
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
                                 Card(
                                   elevation: 10,
                                   margin: EdgeInsets.symmetric(
-                                      horizontal: 10.0, vertical: 5.0),
+                                      horizontal: 5.0, vertical: 5.0),
                                   child: Container(
                                     height: 300,
-                                    width: 195,
+                                    width: 180,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
                                     ),
@@ -128,7 +166,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                                                   BorderRadius.circular(20),
                                               image: DecorationImage(
                                                 image: NetworkImage(
-                                                    'https://via.placeholder.com/150'),
+                                                    'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg'),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -219,7 +257,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                                       horizontal: 10.0, vertical: 5.0),
                                   child: Container(
                                     height: 300,
-                                    width: 195,
+                                    width: 180,
                                     decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(12),
                                     ),
@@ -239,7 +277,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                                                   BorderRadius.circular(20),
                                               image: DecorationImage(
                                                 image: NetworkImage(
-                                                    'https://via.placeholder.com/150'),
+                                                    'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg'),
                                                 fit: BoxFit.cover,
                                               ),
                                             ),
@@ -335,7 +373,7 @@ class _PopularPlaceState extends State<PopularPlace> {
           ],
         ),
       ),
-      bottomNavigationBar: ButtomNavBar(),
+      // bottomNavigationBar: ButtomNavBar(),
     );
   }
 }

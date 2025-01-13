@@ -1,16 +1,17 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_import
 
 import 'package:flutter/material.dart';
-import '../Screen/hearticon.dart';
+import '../HomeScreen/hearticon.dart';
+import '../DecoverScreen/decover_screen.dart';
 
-class DECOVERPLACE extends StatefulWidget {
-  const DECOVERPLACE({super.key});
+class DetailDecoverPlace extends StatefulWidget {
+  const DetailDecoverPlace({super.key});
 
   @override
-  State<DECOVERPLACE> createState() => _DECOVERPLACEState();
+  State<DetailDecoverPlace> createState() => _DetailDecoverPlaceState();
 }
 
-class _DECOVERPLACEState extends State<DECOVERPLACE> {
+class _DetailDecoverPlaceState extends State<DetailDecoverPlace> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,17 +27,23 @@ class _DECOVERPLACEState extends State<DECOVERPLACE> {
                 'Discover Place',
                 style: TextStyle(
                   fontSize: 20,
+                  color: Colors.black,
                   fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
                 ),
               ),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => DecoverScreen()));
+                },
                 child: Text(
                   'View All',
                   style: TextStyle(
-                    color: Colors.blue,
-                    fontSize: 15,
+                    color: Colors.black,
+                    fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
               ),
@@ -72,9 +79,6 @@ class _DECOVERPLACEState extends State<DECOVERPLACE> {
               ],
             ),
           ),
-          Text(
-            'lllllllllllll',
-          )
         ],
       ),
     );
@@ -88,10 +92,11 @@ class _DECOVERPLACEState extends State<DECOVERPLACE> {
     required String rating,
   }) {
     return Card(
-      elevation: 2,
+      elevation: 5,
+      margin: EdgeInsets.symmetric(horizontal: 5.0, vertical: 5.0),
       child: Container(
         height: 300,
-        width: 190,
+        width: 180,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(12),
         ),
