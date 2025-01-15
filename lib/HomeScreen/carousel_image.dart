@@ -12,10 +12,20 @@ class CAROUSELIMAGE extends StatefulWidget {
 
 class _MyWidgetState extends State<CAROUSELIMAGE> {
   final List<String> imageUrls = [
-    'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg',
-    'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg',
-    'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg',
+    'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/20171126_Angkor_Wat_4712_DxO.jpg/1200px-20171126_Angkor_Wat_4712_DxO.jpg',
+    'https://www.novotelphnompenhbkk1.com/wp-content/uploads/sites/53/2023/08/royal-palace-1920x1200.jpg',
+    'https://whc.unesco.org/uploads/thumbs/news_2162-1200-630-20200910105401.jpg',
   ];
+  static const placeName = [
+    'Angkor Wat',
+    'Royal Palace',
+    'Preah Vihear Temple'
+  ]; // List of place names
+  static const province = [
+    'Siem Reap',
+    'Phnom Penh',
+    'Preah Vihear'
+  ]; // List of place names
   int _currentIndex = 0;
 
   @override
@@ -64,14 +74,14 @@ class _MyWidgetState extends State<CAROUSELIMAGE> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Irence RedVelVet',
+                            placeName[_currentIndex],
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 20,
                                 fontStyle: FontStyle.italic),
                           ),
                           Text(
-                            'South Korea',
+                            province[_currentIndex],
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 25,

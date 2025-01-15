@@ -7,13 +7,37 @@ import './hearticon.dart';
 import '../PopularPlaceScreen/pop_place.dart';
 
 class PopularPlaceHome extends StatefulWidget {
-  const PopularPlaceHome({super.key});
-
+  const PopularPlaceHome({super.key}); // List of place names
   @override
   State<PopularPlaceHome> createState() => _PopularPlaceHomeState();
 }
 
 class _PopularPlaceHomeState extends State<PopularPlaceHome> {
+  static const imageUrl = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7K0Uj6Zu8hQ9xvYEh_mksep6fwvliQc5FQ&s',
+    'https://www.siemreap.net/wp-content/uploads/2018/04/bayon-temple-696x435.jpg.webp',
+    'https://whc.unesco.org/uploads/thumbs/news_2162-1200-630-20200910105401.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwWUZ300k5WQPZwu53XFU9LcITpT2z71g0Qg&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82gmZ6aj10MMDV9i2_gRL_20E2r-ASBVkyw&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOGRl3L4OXhmDvKoaHAnIh6V1lLnNk7RSklQ&s'
+  ];
+  static const place = [
+    'Tuol Sleng Museum',
+    'Bayon Temple',
+    'Preah Vihear Temple',
+    'Koh Rong',
+    'Krong Kep',
+    'Wat Phnom'
+  ];
+  static const province = [
+    'Phnom Penh',
+    'Siem Reap',
+    'Preah Vihear',
+    'Sihanoukville',
+    'Kep',
+    'Phnom Penh'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -53,20 +77,22 @@ class _PopularPlaceHomeState extends State<PopularPlaceHome> {
         // Cards
         SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(
+          child: Wrap(
             children: [
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  buildCard(context),
-                  buildCard(context),
+                  buildCard(context, imageUrl[0], place[0], province[0]),
+                  buildCard(context, imageUrl[1], place[1], province[1]),
+                  buildCard(context, imageUrl[2], place[2], province[2]),
                 ],
               ),
-              Row(
+              Column(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  buildCard(context),
-                  buildCard(context),
+                  buildCard(context, imageUrl[3], place[3], province[3]),
+                  buildCard(context, imageUrl[4], place[4], province[4]),
+                  buildCard(context, imageUrl[5], place[5], province[5]),
                 ],
               ),
             ],
@@ -76,7 +102,7 @@ class _PopularPlaceHomeState extends State<PopularPlaceHome> {
     );
   }
 
-  Widget buildCard(BuildContext context) {
+  Widget buildCard(BuildContext context, imageUrl, place, province) {
     return InkWell(
       onTap: () {
         Navigator.push(
@@ -106,8 +132,7 @@ class _PopularPlaceHomeState extends State<PopularPlaceHome> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
-                      image: NetworkImage(
-                          'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg'),
+                      image: NetworkImage(imageUrl),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -136,7 +161,7 @@ class _PopularPlaceHomeState extends State<PopularPlaceHome> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Irence Red VedVet',
+                      place,
                       style: TextStyle(
                         fontSize: 15,
                         fontStyle: FontStyle.italic,
@@ -151,7 +176,7 @@ class _PopularPlaceHomeState extends State<PopularPlaceHome> {
                           size: 20,
                         ),
                         Text(
-                          'South Korea',
+                          province,
                           style: TextStyle(
                             fontSize: 15,
                             fontStyle: FontStyle.italic,

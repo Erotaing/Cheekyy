@@ -11,6 +11,31 @@ class PopularPlace extends StatefulWidget {
 }
 
 class _PopularPlaceState extends State<PopularPlace> {
+  static const imageUrl = [
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSk7K0Uj6Zu8hQ9xvYEh_mksep6fwvliQc5FQ&s',
+    'https://www.siemreap.net/wp-content/uploads/2018/04/bayon-temple-696x435.jpg.webp',
+    'https://whc.unesco.org/uploads/thumbs/news_2162-1200-630-20200910105401.jpg',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwWUZ300k5WQPZwu53XFU9LcITpT2z71g0Qg&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS82gmZ6aj10MMDV9i2_gRL_20E2r-ASBVkyw&s',
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOGRl3L4OXhmDvKoaHAnIh6V1lLnNk7RSklQ&s'
+  ];
+  static const place = [
+    'Tuol Sleng Museum',
+    'Bayon Temple',
+    'Preah Vihear Temple',
+    'Koh Rong',
+    'Krong Kep',
+    'Wat Phnom'
+  ];
+  static const province = [
+    'Phnom Penh',
+    'Siem Reap',
+    'Preah Vihear',
+    'Sihanoukville',
+    'Kep',
+    'Phnom Penh'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,119 +44,115 @@ class _PopularPlaceState extends State<PopularPlace> {
           children: [
             // Search App Bar
             Container(
-              height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 color: Colors.blue[400],
               ),
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    // Top Bar
-                    Padding(
-                      padding: EdgeInsets.only(top: 30, right: 5),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          IconButton(
-                            onPressed: () {
-                              Navigator.pop(context);
-                            },
-                            icon: Icon(
-                              Icons.arrow_back,
-                              size: 30,
-                              color: Colors.white,
-                            ),
+              child: Column(
+                children: [
+                  // Top Bar
+                  Padding(
+                    padding: EdgeInsets.only(top: 30, right: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        IconButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          icon: Icon(
+                            Icons.arrow_back,
+                            size: 30,
+                            color: Colors.white,
                           ),
-                          Text(
-                            'Popular Place',
-                            style: TextStyle(
-                              fontSize: 25,
-                              color: Colors.white,
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold,
-                            ),
+                        ),
+                        Text(
+                          'Popular Place',
+                          style: TextStyle(
+                            fontSize: 25,
+                            color: Colors.white,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
                           ),
-                          Stack(
-                            clipBehavior: Clip.none,
-                            children: [
-                              IconButton(
-                                icon: Icon(
-                                  Icons.notifications_outlined,
-                                  size: 35,
-                                  color: Colors.white,
-                                ),
-                                onPressed: () {
-                                  // Notification action
-                                },
+                        ),
+                        Stack(
+                          clipBehavior: Clip.none,
+                          children: [
+                            IconButton(
+                              icon: Icon(
+                                Icons.notifications_outlined,
+                                size: 35,
+                                color: Colors.white,
                               ),
-                              Positioned(
-                                right: 14,
-                                top: 8,
-                                child: Container(
-                                  padding: EdgeInsets.all(2),
-                                  decoration: BoxDecoration(
-                                    color: Colors.red,
-                                    shape: BoxShape.circle,
-                                  ),
-                                  constraints: BoxConstraints(
-                                    minWidth: 10,
-                                    minHeight: 10,
-                                  ),
+                              onPressed: () {
+                                // Notification action
+                              },
+                            ),
+                            Positioned(
+                              right: 14,
+                              top: 8,
+                              child: Container(
+                                padding: EdgeInsets.all(2),
+                                decoration: BoxDecoration(
+                                  color: Colors.red,
+                                  shape: BoxShape.circle,
+                                ),
+                                constraints: BoxConstraints(
+                                  minWidth: 10,
+                                  minHeight: 10,
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    // Search Bar
-                    Padding(
-                      padding: EdgeInsets.only(left: 16, right: 16, top: 40),
-                      child: TextField(
-                        decoration: InputDecoration(
-                          hintText: 'Search...',
-                          prefixIcon: Icon(Icons.search),
-                          suffixIcon: Icon(Icons.filter_list),
-                          hintStyle: TextStyle(color: Colors.blue),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(15.0),
-                            borderSide: BorderSide.none,
-                          ),
-                          filled: true,
-                          fillColor: Colors.white,
-                          contentPadding: EdgeInsets.symmetric(
-                            vertical: 15.0,
-                            horizontal: 16.0,
-                          ),
+                  ),
+                  // Search Bar
+                  Padding(
+                    padding: EdgeInsets.only(left: 16, right: 16, top: 40),
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: 'Search...',
+                        prefixIcon: Icon(Icons.search),
+                        suffixIcon: Icon(Icons.filter_list),
+                        hintStyle: TextStyle(color: Colors.blue),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(15.0),
+                          borderSide: BorderSide.none,
+                        ),
+                        filled: true,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: 15.0,
+                          horizontal: 16.0,
                         ),
                       ),
                     ),
-                    // Top Places Section
-                    Container(
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                      margin: EdgeInsets.only(top: 50),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(30),
-                          topRight: Radius.circular(30),
-                        ),
-                      ),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              buildPlaceCard(context),
-                              buildPlaceCard(context),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                  ),
+                ],
+              ),
+            ),
+            // Top Places Section
+            Container(
+              width: MediaQuery.of(context).size.width,
+              margin: EdgeInsets.only(top: 20),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30),
+                  topRight: Radius.circular(30),
+                ),
+              ),
+              child: Center(
+                child: Wrap(
+                  alignment: WrapAlignment.center, // Center the cards
+                  spacing: 8.0,
+                  runSpacing: 8.0,
+                  children: List.generate(imageUrl.length, (index) {
+                    return buildPlaceCard(context, imageUrl[index],
+                        place[index], province[index]);
+                  }),
                 ),
               ),
             ),
@@ -142,10 +163,11 @@ class _PopularPlaceState extends State<PopularPlace> {
     );
   }
 
-  Widget buildPlaceCard(BuildContext context) {
+  Widget buildPlaceCard(
+      BuildContext context, String imageUrl, String place, String province) {
     return Card(
       elevation: 10,
-      margin: EdgeInsets.only(top: 20.0, left: 8.0, right: 8.0),
+      margin: EdgeInsets.all(8.0),
       child: Container(
         height: 300,
         width: 180,
@@ -163,9 +185,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
-                    image: NetworkImage(
-                      'https://www.planetware.com/wpimages/2020/07/cambodia-top-places-to-visit-kampot.jpg',
-                    ),
+                    image: NetworkImage(imageUrl),
                     fit: BoxFit.cover,
                   ),
                 ),
@@ -194,7 +214,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Irence Red VedVet',
+                    place,
                     style: TextStyle(
                       fontSize: 15,
                       fontStyle: FontStyle.italic,
@@ -209,7 +229,7 @@ class _PopularPlaceState extends State<PopularPlace> {
                         size: 20,
                       ),
                       Text(
-                        'South Korea',
+                        province,
                         style: TextStyle(
                           fontSize: 15,
                           fontStyle: FontStyle.italic,
